@@ -1,14 +1,14 @@
 ### Linux
 
 ```shell
-curl -L https://github.com/REPLACE_ME_ORG/REPLACE_ME_APP_NAME/releases/download/v{{.Version}}/REPLACE_ME_APP_NAME-linux-amd64.tar.gz | tar xzv 
-sudo mv REPLACE_ME_APP_NAME /usr/local/bin
+curl -L https://github.com/cb-kubecd/jr-goreleaser-test1/releases/download/v{{.Version}}/jr-goreleaser-test1-linux-amd64.tar.gz | tar xzv 
+sudo mv jr-goreleaser-test1 /usr/local/bin
 ```
 
 ### macOS
 
 ```shell
-curl -L  https://github.com/REPLACE_ME_ORG/REPLACE_ME_APP_NAME/releases/download/v{{.Version}}/REPLACE_ME_APP_NAME-darwin-amd64.tar.gz | tar xzv
-sudo mv REPLACE_ME_APP_NAME /usr/local/bin
+curl -L  https://github.com/cb-kubecd/jr-goreleaser-test1/releases/download/v{{.Version}}/jr-goreleaser-test1-darwin-amd64.tar.gz | tar xzv
+sudo mv jr-goreleaser-test1 /usr/local/bin
 ```
 
