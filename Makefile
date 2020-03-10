@@ -110,6 +110,7 @@ install: $(GO_DEPENDENCIES) ## Install the binary
 	GOBIN=${GOPATH}/bin $(GO) install $(BUILDFLAGS) $(MAIN_SRC_FILE)
 
 linux: ## Build for Linux
+	go mod download
 	CGO_ENABLED=$(CGO_ENABLED) GOOS=linux GOARCH=amd64 $(GO) $(BUILD_TARGET) $(BUILDFLAGS) -o build/linux/$(NAME) $(MAIN_SRC_FILE)
 	chmod +x build/linux/$(NAME)
 
@@ -128,7 +129,6 @@ darwin: ## Build for OSX
 release: clean build test linux win darwin
 	git fetch --tags
 	cp hack/changelog-header.md ./changelog.md
-	go mod download
 	#jx step changelog --verbose --header-file=hack/changelog-header.md --version=$(VERSION) --rev=$(PULL_BASE_SHA) --output-markdown=changelog.md --update-release=false
 	jxl goreleaser --organisation=$(ORG) --revision=$(REV) --branch=$(BRANCH) --build-date=$(BUILD_DATE) --go-version=$(GO_VERSION) --root-package=$(ROOT_PACKAGE) --version=$(VERSION)
 
